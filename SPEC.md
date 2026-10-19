@@ -16,7 +16,7 @@ Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncase
 | sequence_len | `--sequence-len` | smoke=32, baseline=128, extended=256 | 128 | From Parameter list; see Execution Description With Parameters. |
 | batch_size | `--batch-size` | smoke=1, baseline=4, extended=8 | 4 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=2, baseline=2, extended=5 | 2 | From Parameter list; see Execution Description With Parameters. |
-| num_iterations | `--num-iterations` | smoke=5, baseline=37100, extended=102000 | 37100 | From Parameter list; see Execution Description With Parameters. |
+| num_iterations | `--num-iterations` | smoke=5, baseline=15000, extended=56400 | 15000 | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation
 
