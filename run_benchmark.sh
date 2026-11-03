@@ -47,13 +47,11 @@ Validation and logging:
 Workload options:
   --model-name <value>            Override model_name
   --dtype <value>            Override dtype
-  --precision <value>            Override precision
-  --num-gpus <value>            Override num_gpus
-  --prompt-source <value>            Override prompt_source
   --sequence-len <value>            Override sequence_len
   --batch-size <value>            Override batch_size
   --warmup-iters <value>            Override warmup_iters
   --num-iterations <value>            Override num_iterations
+  --prompt-source <value>            Override prompt_source
 
 Information:
   --specification               Print this workload's specification and exit
@@ -89,13 +87,11 @@ OUTPUT_FORMAT=""
 SAVE_OPTIONS_FILE=""
 MODEL_NAME=""
 DTYPE=""
-PRECISION=""
-NUM_GPUS=""
-PROMPT_SOURCE=""
 SEQUENCE_LEN=""
 BATCH_SIZE=""
 WARMUP_ITERS=""
 NUM_ITERATIONS=""
+PROMPT_SOURCE=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -118,13 +114,11 @@ while [[ $# -gt 0 ]]; do
     --save-options-file) SAVE_OPTIONS_FILE="${2:-}"; shift 2 ;;
     --model-name) MODEL_NAME="${2:-}"; shift 2 ;;
     --dtype) DTYPE="${2:-}"; shift 2 ;;
-    --precision) PRECISION="${2:-}"; shift 2 ;;
-    --num-gpus) NUM_GPUS="${2:-}"; shift 2 ;;
-    --prompt-source) PROMPT_SOURCE="${2:-}"; shift 2 ;;
     --sequence-len) SEQUENCE_LEN="${2:-}"; shift 2 ;;
     --batch-size) BATCH_SIZE="${2:-}"; shift 2 ;;
     --warmup-iters) WARMUP_ITERS="${2:-}"; shift 2 ;;
     --num-iterations) NUM_ITERATIONS="${2:-}"; shift 2 ;;
+    --prompt-source) PROMPT_SOURCE="${2:-}"; shift 2 ;;
     --help|--specification|--matrix-definition) shift ;;
     *) die "Unknown option: $1" ;;
   esac
@@ -165,13 +159,11 @@ PY
 
 MODEL_NAME="${MODEL_NAME:-$(yaml_get model_name)}"
 DTYPE="${DTYPE:-$(yaml_get dtype)}"
-PRECISION="${PRECISION:-$(yaml_get precision)}"
-NUM_GPUS="${NUM_GPUS:-$(yaml_get num_gpus)}"
-PROMPT_SOURCE="${PROMPT_SOURCE:-$(yaml_get prompt_source)}"
 SEQUENCE_LEN="${SEQUENCE_LEN:-$(yaml_get sequence_len)}"
 BATCH_SIZE="${BATCH_SIZE:-$(yaml_get batch_size)}"
 WARMUP_ITERS="${WARMUP_ITERS:-$(yaml_get warmup_iters)}"
 NUM_ITERATIONS="${NUM_ITERATIONS:-$(yaml_get num_iterations)}"
+PROMPT_SOURCE="${PROMPT_SOURCE:-$(yaml_get prompt_source)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-$(yaml_get output_format)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-csv}"
 
@@ -179,13 +171,11 @@ BENCHMARK_RUN_COMMAND="bash run_benchmark.sh --${PROFILE}"
 [[ "${VALIDATE}" -eq 1 ]] && BENCHMARK_RUN_COMMAND+=" --validate"
 [[ -n "${MODEL_NAME}" ]] && BENCHMARK_RUN_COMMAND+=" --model-name $(printf %q "${MODEL_NAME}")"
 [[ -n "${DTYPE}" ]] && BENCHMARK_RUN_COMMAND+=" --dtype $(printf %q "${DTYPE}")"
-[[ -n "${PRECISION}" ]] && BENCHMARK_RUN_COMMAND+=" --precision $(printf %q "${PRECISION}")"
-[[ -n "${NUM_GPUS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-gpus $(printf %q "${NUM_GPUS}")"
-[[ -n "${PROMPT_SOURCE}" ]] && BENCHMARK_RUN_COMMAND+=" --prompt-source $(printf %q "${PROMPT_SOURCE}")"
 [[ -n "${SEQUENCE_LEN}" ]] && BENCHMARK_RUN_COMMAND+=" --sequence-len $(printf %q "${SEQUENCE_LEN}")"
 [[ -n "${BATCH_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --batch-size $(printf %q "${BATCH_SIZE}")"
 [[ -n "${WARMUP_ITERS}" ]] && BENCHMARK_RUN_COMMAND+=" --warmup-iters $(printf %q "${WARMUP_ITERS}")"
 [[ -n "${NUM_ITERATIONS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-iterations $(printf %q "${NUM_ITERATIONS}")"
+[[ -n "${PROMPT_SOURCE}" ]] && BENCHMARK_RUN_COMMAND+=" --prompt-source $(printf %q "${PROMPT_SOURCE}")"
 set_benchmark_run_command "${BENCHMARK_RUN_COMMAND}"
 
 HOSTNAME_VALUE="$(hostname -s 2>/dev/null || hostname)"
@@ -230,13 +220,11 @@ run_collection() {
   grep -q -- '--output-format' <<<"${help}" && collect_args+=(--output-format "${OUTPUT_FORMAT}")
   grep -q -- '--model-name' <<<"${help}" && collect_args+=(--model-name "${MODEL_NAME}")
   grep -q -- '--dtype' <<<"${help}" && collect_args+=(--dtype "${DTYPE}")
-  grep -q -- '--precision' <<<"${help}" && collect_args+=(--precision "${PRECISION}")
-  grep -q -- '--num-gpus' <<<"${help}" && collect_args+=(--num-gpus "${NUM_GPUS}")
-  grep -q -- '--prompt-source' <<<"${help}" && collect_args+=(--prompt-source "${PROMPT_SOURCE}")
   grep -q -- '--sequence-len' <<<"${help}" && collect_args+=(--sequence-len "${SEQUENCE_LEN}")
   grep -q -- '--batch-size' <<<"${help}" && collect_args+=(--batch-size "${BATCH_SIZE}")
   grep -q -- '--warmup-iters' <<<"${help}" && collect_args+=(--warmup-iters "${WARMUP_ITERS}")
   grep -q -- '--num-iterations' <<<"${help}" && collect_args+=(--num-iterations "${NUM_ITERATIONS}")
+  grep -q -- '--prompt-source' <<<"${help}" && collect_args+=(--prompt-source "${PROMPT_SOURCE}")
 
   printf -v collect_cmd '%q ' "${PYTHON_BIN}" scripts/collect_workload.py "${collect_args[@]}"
   echo "[RUN] ${collect_cmd}"

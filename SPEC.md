@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary) Sweep dimensions: model_name, dtype, precision, num_gpus, prompt_source, sequence_len, batch_size, warmup_iters.
+Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary) Sweep dimensions: model_name, dtype, sequence_len, batch_size, warmup_iters, num_iterations, prompt_source.
 
 ## Parameters
 
@@ -10,13 +10,11 @@ Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncase
 | --- | --- | --- | --- | --- |
 | model_name | `--model-name` | smoke=bert-base-uncased, baseline=bert-base-uncased, extended=bert-base-uncased | bert-base-uncased | From Parameter list; see Execution Description With Parameters. |
 | dtype | `--dtype` | smoke=f16_r, baseline=f16_r, extended=f16_r | f16_r | From Parameter list; see Execution Description With Parameters. |
-| precision | `--precision` | smoke=mixed_float16, baseline=mixed_float16, extended=mixed_float16 | mixed_float16 | From Parameter list; see Execution Description With Parameters. |
-| num_gpus | `--num-gpus` | smoke=1, baseline=1, extended=1 | 1 | From Parameter list; see Execution Description With Parameters. |
-| prompt_source | `--prompt-source` | smoke=synthetic, baseline=synthetic, extended=synthetic | synthetic | From Parameter list; see Execution Description With Parameters. |
 | sequence_len | `--sequence-len` | smoke=32, baseline=128, extended=256 | 128 | From Parameter list; see Execution Description With Parameters. |
 | batch_size | `--batch-size` | smoke=1, baseline=4, extended=8 | 4 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=2, baseline=2, extended=5 | 2 | From Parameter list; see Execution Description With Parameters. |
 | num_iterations | `--num-iterations` | smoke=5, baseline=15000, extended=52000 | 15000 | From Parameter list; see Execution Description With Parameters. |
+| prompt_source | `--prompt-source` | smoke=synthetic, baseline=synthetic, extended=synthetic | synthetic | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation
 
