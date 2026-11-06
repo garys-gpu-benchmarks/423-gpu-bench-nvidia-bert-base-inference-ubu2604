@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary) Sweep dimensions: model_name, dtype, sequence_len, batch_size, warmup_iters, num_iterations, prompt_source.
+Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary) Sweep dimensions: model_name, dtype, sequence_len, batch_size, warmup_iters, num_iterations, prompt_source.
 
 ## Parameters
 
@@ -38,11 +38,11 @@ pass1,bert-base-uncased,128,8,ok,40,200,190,220,5120,4
 
 ## Framework
 
-Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
+Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
 
 ## Installation and Execution Summary
 
-Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference. This is not TensorFlow
+Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference
 
 ## Platform Portability
 
@@ -98,10 +98,10 @@ bash run_benchmark.sh --extended
 2. `run.error_message` is NULL.
 3. `started_at` and `finished_at` are valid ISO-8601 UTC strings.
 4. All required aggregate metrics in `runs` are non-NULL and finite.
-5. All required aggregate metrics are physically sensible (positive values). Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
+5. All required aggregate metrics are physically sensible (positive values). Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
 6. At least 2 sample rows exist for the latest `run_id` (sweep coverage).
 7. No sample has `status = 'error'`.
-8. Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
+8. Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)
 
 ### Baseline / Threshold configuration (`config/benchmark_config.yaml`)
 

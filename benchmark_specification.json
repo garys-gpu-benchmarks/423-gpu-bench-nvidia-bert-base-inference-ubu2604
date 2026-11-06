@@ -140,6 +140,16 @@
     "value": "-"
   },
   {
+    "field_name": "Validation Objective",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Validates Hugging Face BERT inference throughput and latency in PyTorch"
+  },
+  {
+    "field_name": "Command Tools Executed",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py"
+  },
+  {
     "field_name": "run_benchmark Command Plus Options for Smoke Run (One minute or less)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "bash run_benchmark.sh --smoke --validate --model-name bert-base-uncased --dtype f16_r --sequence-len 32 --batch-size 1 --warmup-iters 2 --num-iterations 5 --prompt-source synthetic"
@@ -155,29 +165,19 @@
     "value": "bash run_benchmark.sh --extended --validate --model-name bert-base-uncased --dtype f16_r --sequence-len 256 --batch-size 8 --warmup-iters 5 --num-iterations 52000 --prompt-source synthetic"
   },
   {
-    "field_name": "Validation Objective",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Validates Hugging Face BERT inference throughput and latency. This is not tf.keras"
-  },
-  {
-    "field_name": "Command Tools Executed",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py"
-  },
-  {
     "field_name": "Command Execution Details and Purpose",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference. This is not TensorFlow"
+    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference"
   },
   {
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py twice with bert-base-uncased on synthetic token batches for yaml sequence_len and batch_size. Parse sequences/s, tokens/s, and p50, p95, and p99 latency, then average a summary row. This is not TensorFlow"
+    "value": "Run gpu-bench-bert-transformers-inference.py twice with bert-base-uncased on synthetic token batches for yaml sequence_len and batch_size. Parse sequences/s, tokens/s, and p50, p95, and p99 latency, then average a summary row"
   },
   {
     "field_name": "Execution Description With Parameters",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch, not TensorFlow). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)"
+    "value": "Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)"
   },
   {
     "field_name": "Execution Domain",
@@ -372,7 +372,7 @@
   {
     "field_name": "Installation and Execution Summary",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference. This is not TensorFlow"
+    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference"
   },
   {
     "field_name": "Workload Command Line Executable",
@@ -392,7 +392,7 @@
   {
     "field_name": "Execution Summary (Run and Measure)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference. This is not TensorFlow"
+    "value": "Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference"
   },
   {
     "field_name": "nVidia Porting Instructions (Reference Only)",
@@ -412,7 +412,7 @@
   {
     "field_name": "Profile Parameter Values",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Parameters_SmokeBaselineExtend",
-    "value": "{\"model_name\": {\"smoke\": \"bert-base-uncased\", \"baseline\": \"bert-base-uncased\", \"extended\": \"bert-base-uncased\", \"notes\": \"\"}, \"dtype\": {\"smoke\": \"f16_r\", \"baseline\": \"f16_r\", \"extended\": \"f16_r\", \"notes\": \"\"}, \"sequence_len\": {\"smoke\": \"32\", \"baseline\": \"128\", \"extended\": \"256\", \"notes\": \"\"}, \"batch_size\": {\"smoke\": \"1\", \"baseline\": \"4\", \"extended\": \"8\", \"notes\": \"\"}, \"warmup_iters\": {\"smoke\": \"2\", \"baseline\": \"2\", \"extended\": \"5\", \"notes\": \"\"}, \"num_iterations\": {\"smoke\": \"5\", \"baseline\": \"15000\", \"extended\": \"52000\", \"notes\": \"H100 2026-08-16 probe 100 -> 9s (2 model loads ~7.4s + 8ms/step). Predict 12500 -> ~208s. Do not copy AMD 18000. Extended 36000 extrapolated ~10:00, not tested. Retimed 2026-08-17 toward 3-4 min baseline; extended scaled by the same factor. | 2026-10-19 GARY_LEDGER (runtime_ledger_Aggregate_375_376_377_378_20261019a_845am; targets baseline under 5 min, extended under 15 min): baseline 37100 measured 7:56/9:26 (slower run); fixed start ~19s from smoke; 37100 -> 15000, predicted ~4:00; extended 102000 measured 21:27 (slower run); fixed start ~19s from smoke; 102000 -> 56400, predicted ~12:00. Unconfirmed by a fresh run. | 2026-10-21 extended 56400 -> 52000; 223 and 423 now share one value (as 1xx/3xx do). Ledger-predicted extended runtime 24.04 ~7:05, 26.04 ~13:21 (limits: baseline 5:00, extended 15:00)\"}, \"prompt_source\": {\"smoke\": \"synthetic\", \"baseline\": \"synthetic\", \"extended\": \"synthetic\", \"notes\": \"\"}}"
+    "value": "{\"model_name\": {\"smoke\": \"bert-base-uncased\", \"baseline\": \"bert-base-uncased\", \"extended\": \"bert-base-uncased\"}, \"dtype\": {\"smoke\": \"f16_r\", \"baseline\": \"f16_r\", \"extended\": \"f16_r\"}, \"sequence_len\": {\"smoke\": \"32\", \"baseline\": \"128\", \"extended\": \"256\"}, \"batch_size\": {\"smoke\": \"1\", \"baseline\": \"4\", \"extended\": \"8\"}, \"warmup_iters\": {\"smoke\": \"2\", \"baseline\": \"2\", \"extended\": \"5\"}, \"num_iterations\": {\"smoke\": \"5\", \"baseline\": \"15000\", \"extended\": \"52000\"}, \"prompt_source\": {\"smoke\": \"synthetic\", \"baseline\": \"synthetic\", \"extended\": \"synthetic\"}}"
   },
   {
     "field_name": "Profile Command Authorship",

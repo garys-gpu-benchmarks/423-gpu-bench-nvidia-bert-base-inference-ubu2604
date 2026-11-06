@@ -15,13 +15,13 @@ This PRD.md section is populated from benchmark_specification.json, which is the
 BERT Inference Sweep
 
 ## Execution Summary (Run and Measure)
-Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference. This is not TensorFlow
+Run gpu-bench-bert-transformers-inference.py twice with Hugging Face Transformers bert-base-uncased on synthetic token batches (yaml sequence_len/batch_size, mixed_float16), parse RESULT sequences/s, tokens/s, and p50/p95/p99 latency, and average a summary row, to measure PyTorch BERT inference
 
 ## Main Goal
 Measure PyTorch BERT inference performance
 
 ## Validation Objective
-Validates Hugging Face BERT inference throughput and latency. This is not tf.keras
+Validates Hugging Face BERT inference throughput and latency in PyTorch
 
 ## Workload Category
 Training, Inference, Model Workloads
