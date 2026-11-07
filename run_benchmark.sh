@@ -16,11 +16,11 @@ capture_benchmark_run_command_submitted "$@"
 
 usage() {
   cat <<'USAGE'
+
 Usage: bash run_benchmark.sh [OPTIONS]
 
 Workload Name:          BERT Inference Sweep.
 Main Goal:              Measure PyTorch BERT inference performance.
-Validation Objective:   Validates Hugging Face BERT inference throughput and latency in PyTorch.
 Command Tools Executed: Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py.
 
 Profiles (default: --smoke):

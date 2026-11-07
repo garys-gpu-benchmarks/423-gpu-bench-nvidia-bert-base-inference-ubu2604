@@ -35,6 +35,11 @@
     "value": "Measure PyTorch BERT inference performance"
   },
   {
+    "field_name": "Command Tools Executed",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: Inference throughput (sequences_per_sec); #2: Inference latency, mean step time, ms (mean_latency_ms); #3: Token throughput (tokens_per_sec); #4: Peak GPU memory (peak_gpu_memory_gb)"
@@ -140,16 +145,6 @@
     "value": "-"
   },
   {
-    "field_name": "Validation Objective",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Validates Hugging Face BERT inference throughput and latency in PyTorch"
-  },
-  {
-    "field_name": "Command Tools Executed",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py"
-  },
-  {
     "field_name": "run_benchmark Command Plus Options for Smoke Run (One minute or less)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "bash run_benchmark.sh --smoke --validate --model-name bert-base-uncased --dtype f16_r --sequence-len 32 --batch-size 1 --warmup-iters 2 --num-iterations 5 --prompt-source synthetic"
@@ -163,6 +158,11 @@
     "field_name": "run_benchmark Command Plus Options for Extended Run (8 to 15 minutes)",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "bash run_benchmark.sh --extended --validate --model-name bert-base-uncased --dtype f16_r --sequence-len 256 --batch-size 8 --warmup-iters 5 --num-iterations 52000 --prompt-source synthetic"
+  },
+  {
+    "field_name": "Validation Objective",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Validates Hugging Face BERT inference throughput and latency in PyTorch"
   },
   {
     "field_name": "Command Execution Details and Purpose",
