@@ -29,13 +29,24 @@ Profiles (default: --smoke):
   --extended                    Run extended profile
 
 Parameters (override the profile's value):
-  --model-name <value>          Model or weights identifier to load (smoke/baseline/extended: bert-base-uncased)
-  --dtype <value>               Tensor, element, or storage data type (smoke/baseline/extended: f16_r)
-  --sequence-len <n>            Total input sequence or context length (smoke 32, baseline 128, extended 256)
+  --model-name <value>          Model or weights identifier to load
+                                  all profiles: bert-base-uncased
+  --dtype <value>               Tensor, element, or storage data type
+                                  all profiles: f16_r
+  --sequence-len <n>            Total input sequence or context length
+                                  smoke:    32
+                                  baseline: 128
+                                  extended: 256
   --batch-size <n>              Number of items processed together (smoke 1, baseline 4, extended 8)
-  --warmup-iters <n>            Untimed warm-up repetitions before measurement (smoke 2, baseline 2, extended 5)
-  --num-iterations <n>          Number of timed repetitions (smoke 5, baseline 15000, extended 52000)
-  --prompt-source <value>       Source or generation mode for input prompts (smoke/baseline/extended: synthetic)
+  --warmup-iters <n>            Untimed warm-up repetitions before measurement
+                                  smoke/baseline: 2
+                                  extended:       5
+  --num-iterations <n>          Number of timed repetitions
+                                  smoke:    5
+                                  baseline: 15000
+                                  extended: 52000
+  --prompt-source <value>       Source or generation mode for input prompts
+                                  all profiles: synthetic
 
 General options:
   --config <file>               Config file (default: config/benchmark_config.yaml)
