@@ -19,9 +19,9 @@ usage() {
 
 Usage: bash run_benchmark.sh [OPTIONS]
 
-Workload Name:          BERT Inference Sweep.
-Main Goal:              Measure PyTorch BERT inference performance.
-Command Tools Executed: Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py.
+Workload Name:          BERT Inference Sweep
+Main Goal:              Measure PyTorch BERT inference performance
+Command Tools Executed: Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py
 
 Profiles (default: --smoke):
   --smoke                       Run smoke profile
