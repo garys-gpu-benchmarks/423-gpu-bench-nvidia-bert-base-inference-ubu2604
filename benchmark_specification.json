@@ -40,6 +40,11 @@
     "value": "Run gpu-bench-bert-transformers-inference.py via collect_bert_infer.py"
   },
   {
+    "field_name": "Execution Description With Parameters",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: Inference throughput (sequences_per_sec); #2: Inference latency, mean step time, ms (mean_latency_ms); #3: Token throughput (tokens_per_sec); #4: Peak GPU memory (peak_gpu_memory_gb)"
@@ -173,11 +178,6 @@
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Run gpu-bench-bert-transformers-inference.py twice with bert-base-uncased on synthetic token batches for yaml sequence_len and batch_size. Parse sequences/s, tokens/s, and p50, p95, and p99 latency, then average a summary row"
-  },
-  {
-    "field_name": "Execution Description With Parameters",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Runs gpu-bench-bert-transformers-inference.py with Hugging Face bert-base-uncased on synthetic token batches (PyTorch). model_name, sequence_len, batch_size, warmup_iters, num_iterations, and precision mixed_float16 / f16_r come from yaml. Collector runs the script twice (pass1/pass2/summary)"
   },
   {
     "field_name": "Execution Domain",
